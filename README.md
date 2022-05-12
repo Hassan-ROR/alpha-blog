@@ -23,4 +23,3 @@ Things you may want to cover:
 
 * ...
 * we check either our github repository is working or not
-* Again changing the read me file
