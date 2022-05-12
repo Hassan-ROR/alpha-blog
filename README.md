@@ -22,4 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-* we check either our github repository is working or not
+* checking the git working correctly.
