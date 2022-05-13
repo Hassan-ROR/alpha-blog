@@ -22,4 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-* checking the git working correctly.
+* Article show correctly
