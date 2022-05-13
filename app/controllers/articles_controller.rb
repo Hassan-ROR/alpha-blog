@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
     def show
         
-        @article = Article.find(params[:id])
+        @article = Article.find(params[:id])         # find article with param id and show user
 
     end
 
