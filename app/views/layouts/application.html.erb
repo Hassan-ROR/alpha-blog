@@ -11,18 +11,13 @@
   </head>
 
   <body>
-
-  <% flash.each do |name, msg|%>
-  
-    <ul>
-
-    <li> <%= msg %> </li>
+    <%= render 'layouts/navigation'%>
+    <%= render 'layouts/messages' %>
+    <div class= "container">
+      <%= yield %>
+    </div>
+      <%= render 'layouts/footer'%>
+    </div>
     
-    </ul>
-  <% end %>
-  
-    <%= yield %>
-
-
   </body>
 </html>
