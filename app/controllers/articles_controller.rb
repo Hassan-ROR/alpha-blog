@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     def create
         #render plain: params[:article].inspect      # show the values with param hash  
         @article = Article.new(article_params)
-        @article.user = User.first
+        @article.user = User.first                   # Every time first user create the article.
         if @article.save                             # This action first validates the values entered 
             flash[:success] = "Article created successfully"
             redirect_to article_path(@article)       # this is show path
