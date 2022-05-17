@@ -8,9 +8,9 @@ class ArticlesController < ApplicationController
       @article = Article.new
     end
     def create
-        #render plain: params[:article].inspect      # show the values with param hash
-
+        #render plain: params[:article].inspect      # show the values with param hash  
         @article = Article.new(article_params)
+        @article.user = User.first
         if @article.save                             # This action first validates the values entered 
             flash[:success] = "Article created successfully"
             redirect_to article_path(@article)       # this is show path
@@ -18,9 +18,8 @@ class ArticlesController < ApplicationController
             render 'new'                             # if not valid go back to fill form again.
         end
     end
-    def edit
-
-        
+    def edit     
+    
     end
     def update
         if @article.update(article_params)
@@ -32,7 +31,6 @@ class ArticlesController < ApplicationController
     end
     def show
         
-
     end
     def destroy
         
