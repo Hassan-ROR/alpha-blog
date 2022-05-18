@@ -5,21 +5,32 @@ class UsersController < ApplicationController
 
    def create                    # will save the entered informations in database
     @user = User.new(user_params)
-    if @user.save
+     if @user.save
         flash[:success] = "Welcome to AlphaBlog app #{@user.username}" 
         redirect_to articles_path
-    else
+     else
         render 'new'
+     end
     end
-   end
+
+    def edit
+       @user = User.find(params[:id])       # to edit user first we need to find the user with id
+    end
+
+    def update
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        flash[:success] = "Your account was updated successfully"
+        redirect_to articles_path
+      else
+        render 'edit'
+      end
+    end
+   
 
 private
    def user_params               #whitelist the users enterd value
-
-    params.require(:user).permit(:username,:password,:email)
-
+     params.require(:user).permit(:username,:password,:email)
    end
-
-
 end
 
