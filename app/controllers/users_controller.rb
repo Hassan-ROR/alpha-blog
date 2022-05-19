@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all            # grab the all users and display on index view 
+    #@users = User.all            # grab the all users and display on index view
+    # as we want to display users on more than one page, so we don't need to grab all users
+    @users = User.paginate(page: params[:page], per_page: 5) 
   end
   def new
     @user = User.new             # require for getting the user information
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
   end
   def show
     @user = User.find(params[:id])  
+    @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
  private
   def user_params               #whitelist the users enterd value
